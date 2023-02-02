@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update_translations:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source repository
+        uses: actions/checkout@v2
+        with:
+          repository: epico-ink/site-translation
+          ref: main
+          path: site-translation
+          token: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
+
+      - name: Checkout target repository
+        uses: actions/checkout@v2
+        with:
+          repository: khole/epico-client
+          ref: dev
+          path: epico-client
+          token: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
+
+      - name: Check contents of target repository
+        run: |
+          cd epico-client
+          if [ -d "src/translations" ]; then
+            echo "Target repository contains src/translations folder."
+          else
+            echo "Target repository does not contain src/translations folder."
+          fi
+
+      - name: Update translations folder
+        run: |
+          cd epico-client
+          rm -rf src/translations
+          cp -r ../site-translation/src/translations src/
+
+      - name: Create branch
+        run: |
+          cd epico-client
+          git init
+          git remote remove origin
+          git remote add origin https://github.com/khole/epico-client.git
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git checkout -b update-translations 
+          git add src/translations
+          git commit -m "Update translations folder"
+          git push --set-upstream origin update-translations
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
+
+      - name: create pull request
+        run: |
+          cd epico-client
+          gh pr create -B dev -H update-translations --title '[BOT] Update Translations' --body 'Created by Github action'
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
