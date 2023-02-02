@@ -11,7 +11,7 @@ const SuccessPage: React.FC = () => {
 
   const getToken = async () => {
     const result = await fetch(
-      "https://bdvurcsufqllc2h5ugdehmifli0hsxho.lambda-url.ap-northeast-1.on.aws/",
+      "https://2oguz22wewtmtye66o37jvph3e0ekshf.lambda-url.ap-northeast-1.on.aws/",
       {
         method: "POST",
         headers: {
@@ -25,7 +25,7 @@ const SuccessPage: React.FC = () => {
     );
     const data = await result.json();
     if (data) {
-      setAccessToken(data.pat);
+      setAccessToken(data.token);
     }
     replace(`/[languageID]`, `/${LANGUAGES[0].languageID}`);
   };

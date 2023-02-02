@@ -37,7 +37,8 @@ const HomePage: NextPage<IHomePageProps> = ({
     setIsLoading(true);
     window.location.assign(
       "https://github.com/login/oauth/authorize?client_id=" +
-        process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID
+        process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID +
+        "&scope=repo"
     );
   };
 
