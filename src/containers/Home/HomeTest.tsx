@@ -19,15 +19,14 @@ import { octokitConstants } from "../../constants/octokit.constants";
 import { useRouter } from "next/router";
 import { Language } from "../../components/Language/Language";
 import randomWords from "random-words";
-const MyOctokit = Octokit.plugin(createPullRequest);
+import { useAuth } from "../../context/auth.context";
 
-const octokit = new MyOctokit({
-  auth: process.env.NEXT_PUBLIC_GITHUB_TOKEN,
-});
+const MyOctokit = Octokit.plugin(createPullRequest);
 
 export const HomeTest = (props) => {
   const ROWS_PER_PAGE = 10;
   const { translations, sourceLanguage, commonPaths, nonCommonPaths } = props;
+  const { accessToken } = useAuth();
   const { query, push } = useRouter();
   const languageID = query.languageID as string;
   const [rowsPerPage] = React.useState(ROWS_PER_PAGE);
@@ -37,6 +36,10 @@ export const HomeTest = (props) => {
   const [items, setItems] = React.useState([
     { path: "", content: "", key: "", contentFromGH: "" },
   ]);
+
+  const octokit = new MyOctokit({
+    auth: accessToken,
+  });
 
   const searchString = Object.keys(translations).filter((key) => {
     return translations[key].toLowerCase().includes(searchField.toLowerCase());
