@@ -12,7 +12,7 @@ Once a user has requested for changes in texts, it will automatically create a p
 
 <img src="markdown/guide1.png" width="500">
 
-- **This doesn't seem right..**
+- **This doesn't seem right.. let's change that text to something else.**
 
 <img src="markdown/guide3.png" width="400">
 
