@@ -12,7 +12,7 @@ import {
   CircularProgress,
 } from "@mui/material";
 import moment from "moment";
-import { ItemTest } from "../../components/Items/ItemTest";
+import { Item } from "../../components/Items/Item";
 import { Octokit } from "octokit";
 import { createPullRequest } from "octokit-plugin-create-pull-request";
 import { octokitConstants } from "../../constants/octokit.constants";
@@ -23,7 +23,7 @@ import { useAuth } from "../../context/auth.context";
 
 const MyOctokit = Octokit.plugin(createPullRequest);
 
-export const HomeTest = (props) => {
+export const Home = (props) => {
   const ROWS_PER_PAGE = 10;
   const { translations, sourceLanguage, commonPaths, nonCommonPaths } = props;
   const { accessToken } = useAuth();
@@ -244,7 +244,7 @@ export const HomeTest = (props) => {
               .map((key, i) => (
                 <Grid container spacing={2} key={i}>
                   <Grid item xs={12}>
-                    <ItemTest
+                    <Item
                       octokit={octokit}
                       source={sourceLanguage[key]}
                       translationValue={translations[key]}
@@ -259,7 +259,7 @@ export const HomeTest = (props) => {
             searchString.map((item, i) => (
               <Grid container spacing={2} key={i}>
                 <Grid item xs={12}>
-                  <ItemTest
+                  <Item
                     octokit={octokit}
                     source={sourceLanguage[item]}
                     translationValue={translations[item]}

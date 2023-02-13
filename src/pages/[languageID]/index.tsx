@@ -7,7 +7,7 @@ import {
   getNonCommonPaths,
 } from "../../context/language.context";
 import { Localization, SourceLanguage } from "../../translations/types";
-import { HomeTest } from "../../containers/Home/HomeTest";
+import { Home } from "../../containers/Home/Home";
 import {
   Dialog,
   Box,
@@ -80,7 +80,7 @@ const HomePage: NextPage<IHomePageProps> = ({
           </Box>
         </Box>
       </Dialog>
-      <HomeTest
+      <Home
         nonCommonPaths={nonCommonPaths}
         commonPaths={commonPaths}
         translations={localization?.translations}

@@ -29,7 +29,7 @@ const StyledEditText = styled(EdiText)(() => ({
   },
 }));
 
-export const ItemTest = (props) => {
+export const Item = (props) => {
   const {
     octokit,
     handleNewItem,
