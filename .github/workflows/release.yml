@@ -60,6 +60,6 @@ jobs:
       - name: create pull request
         run: |
           cd epico-client
-          gh pr create -B dev -H $BRANCH_NAME --title '[BOT] Update Translations' --body 'Created by Github action'
+          gh pr create -B dev -H $BRANCH_NAME --title "[BOT]-Update-Translations" --body "Created by Github action"
         env:
           GITHUB_TOKEN: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
