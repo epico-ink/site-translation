@@ -49,17 +49,16 @@ jobs:
           git remote add origin https://github.com/khole/epico-client.git
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
-          BRANCH_NAME="update-translations-$(date +%s)"
-          git checkout -b $BRANCH_NAME
+          git checkout -b update-translations
           git add src/translations
           git commit -m "[BOT]-Update-Translations"
-          git push --set-upstream origin $BRANCH_NAME
+          git push --set-upstream origin update-translations
         env:
           GITHUB_TOKEN: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
 
       - name: create pull request
         run: |
           cd epico-client
-          gh pr create -B dev -H $BRANCH_NAME --title "[BOT]-Update-Translations" --body "Created by Github action"
+          gh pr create -B dev -H update-translations --title "feat: [BOT]-Update-Translations" --body "Created by Github action"
         env:
           GITHUB_TOKEN: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
