@@ -52,7 +52,7 @@ jobs:
           BRANCH_NAME="update-translations-$(date +%s)"
           git checkout -b $BRANCH_NAME
           git add src/translations
-          git commit -m "feat: [BOT] Update translations folder"
+          git commit -m "[BOT]-Update-Translations"
           git push --set-upstream origin $BRANCH_NAME
         env:
           GITHUB_TOKEN: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
