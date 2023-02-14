@@ -1,6 +1,6 @@
 export const octokitConstants = {
-  owner: "kyllolive",
-  repo: "nextjs-octokit-demo",
+  owner: "epico-ink",
+  repo: "site-translation",
   body: "Update Translations",
   base: "main",
 };
