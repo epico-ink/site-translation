@@ -40,6 +40,7 @@ const HomePage: NextPage<IHomePageProps> = ({
         process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID +
         "&scope=repo"
     );
+    console.log(process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID);
   };
 
   return (
