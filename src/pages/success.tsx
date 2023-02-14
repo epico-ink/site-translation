@@ -15,7 +15,7 @@ const SuccessPage: React.FC = () => {
       {
         method: "POST",
         headers: {
-          origin: "https://nextjs-octokit-demo.vercel.app/",
+          origin: "https://site-translations.epico.ink/",
           "Access-Control-Request-Method": "POST",
         },
         body: JSON.stringify({
