@@ -6,6 +6,7 @@ import {
   getCommonPaths,
   getNonCommonPaths,
 } from "../../context/language.context";
+import { LANGUAGES } from "../../constants/language.constants";
 import { Localization, SourceLanguage } from "../../translations/types";
 import { Home } from "../../containers/Home/Home";
 import {
@@ -17,6 +18,7 @@ import {
   CircularProgress,
 } from "@mui/material";
 import { useAuth } from "../../context/auth.context";
+import { useRouter } from "next/router";
 export interface IHomePageProps {
   localization?: Localization;
   sourceLanguage?: SourceLanguage;
@@ -31,8 +33,8 @@ const HomePage: NextPage<IHomePageProps> = ({
   commonPaths,
 }) => {
   const [isLoading, setIsLoading] = React.useState(false);
-  const { accessToken } = useAuth();
-
+  const { accessToken, setAccessToken } = useAuth();
+  const { replace } = useRouter();
   const loginWithGithub = () => {
     setIsLoading(true);
     window.location.assign(
@@ -40,6 +42,24 @@ const HomePage: NextPage<IHomePageProps> = ({
         process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID +
         "&scope=repo"
     );
+  };
+
+  const loginAnonymously = async () => {
+    setIsLoading(true);
+    const token = await fetch(
+      "https://intvgdsy4fjbc23oufhllxo2ru0sihpe.lambda-url.ap-northeast-1.on.aws/",
+      {
+        method: "GET",
+        headers: {
+          origin: "http://localhost:3001/",
+        },
+      }
+    );
+    const data = await token.json();
+    if (data) {
+      setAccessToken(data.token);
+    }
+    replace(`/[languageID]`, `/${LANGUAGES[0].languageID}`);
   };
 
   return (
@@ -62,20 +82,37 @@ const HomePage: NextPage<IHomePageProps> = ({
               />
             )}
             {!isLoading && (
-              <Button
+              <div
                 style={{
                   justifyContent: "center",
                   display: "flex",
                   margin: "auto",
                   width: "fit-content",
-                  padding: "10px 20px",
-                  backgroundColor: "#000",
-                  color: "#fff",
                 }}
-                onClick={loginWithGithub}
               >
-                Login
-              </Button>
+                <Button
+                  style={{
+                    padding: "10px 20px",
+                    backgroundColor: "#000",
+                    color: "#fff",
+                    margin: "2rem",
+                  }}
+                  onClick={loginWithGithub}
+                >
+                  Login
+                </Button>
+                <Button
+                  style={{
+                    padding: "10px 20px",
+                    backgroundColor: "#022",
+                    color: "#fff",
+                    margin: "2rem",
+                  }}
+                  onClick={loginAnonymously}
+                >
+                  Login Anonymously
+                </Button>
+              </div>
             )}
           </Box>
         </Box>
