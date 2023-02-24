@@ -21,7 +21,7 @@ const common = {
   LABEL_NO_COLLABORATORS: 'No Collaborators',
   LABEL_ADD: 'Add',
   LABEL_REMOVE: 'Remove',
-  LABEL_CAN_EDIT: 'Can edit',
+  LABEL_CAN_EDIT: 'Can editadadadadasdasd',
   LABEL_CAN_VIEW: 'Can view',
   LABEL_SHARE_WITH_SOMEONE_PLACEHOLDER: 'Share with someone...',
   LABEL_LOADING: 'Loading...',
@@ -31,7 +31,7 @@ const common = {
   LABEL_AUTH_GUARD_REDIRECT_MSG:
     'Unauthenticated - we will redirect you to home',
   LABEL_USER_CARD_TITLE: 'Anonymous',
-  LABEL_USER_CARD_SUB_HEADER: 'Sign in or join us by creating an account',
+  LABEL_USER_CARD_SUB_HEADER: 'sadadadasdSign in or join us by creating an account',
   LABEL_READS: 'Reads',
   LABEL_LIKES: 'Likes',
   LABEL_LIKE: 'Like',
