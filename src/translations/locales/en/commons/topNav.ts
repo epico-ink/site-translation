@@ -2,7 +2,7 @@ const topNav = {
   LABEL_HOME: 'Home',
   LABEL_GENRE: 'Genres',
   LABEL_TRANSLATE: 'Scanlate',
-  LABEL_NOTIFICATION: 'Notifications',
+  LABEL_NOTIFICATION: 'asdadasNotifications',
   LABEL_ACCOUNT: 'My Account',
   LABEL_ABOUT_US: 'About us',
   LABEL_SIGN_IN: 'Sign in',
