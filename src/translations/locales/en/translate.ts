@@ -7,7 +7,7 @@ const translate = {
   ...common,
   ...authModal,
   //translate page
-  SCANLATE_BANNER_HEADER: 'Hello Scanlators!',
+  SCANLATE_BANNER_HEADER: 'asdadasdasHello Scanlators!',
   SCANLATE_BANNER_CONTENT:
     'Support creators by helping them reach a larger market Gain access to all comics for free Work with creators in a legal setting Searchable dialogue/manuscript Built in glossary for changing teams',
   SCANLATE_BANNER_HEADER_2: 'Your Comics Deserves To Be Read By The World',
@@ -61,7 +61,7 @@ const translate = {
   LABEL_SWITCH_LANGUAGE: 'Switch Language',
   LABEL_SERIES_TITLE: 'Series Title',
   LABEL_SERIES_DESCRIPTION: 'Series Description',
-  LABEL_CHAPTER_TITLE: 'Chapter Title',
+  LABEL_CHAPTER_TITLE: 'Chapter Titleasdadasdasd',
   LABEL_CHAPTER_DESCRIPTION: 'Chapter Description',
   LABEL_CHAPTER_AUTHOR_NOTE: `Chapter Author's Note`,
   //SFX Tab
@@ -79,7 +79,7 @@ const translate = {
   //Change
   LABEL_CHANGE_PAGE:
     'There are unsaved changes. Are you sure you want to move away? Changes will be lost',
-  LABEL_OFFICIAL_CLEAN_VERSION: 'Official Version',
+  LABEL_OFFICIAL_CLEAN_VERSION: 'adasdadadOfficial Version',
   LABEL_MY_CLEAN_VERSION: 'my version',
   LABEL_VERSION: 'version',
 };
