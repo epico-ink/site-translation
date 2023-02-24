@@ -10,7 +10,7 @@ const topNav = {
   LABEL_SETTINGS: 'Settings',
   LABEL_SEARCH: 'Search',
   LABEL_PUBLISH: 'Publish',
-  TOOLTIP_CREATE_SERIES: 'Create series',
+  TOOLTIP_CREATE_SERIES: 'asdadasdadCreate series',
   TOOLTIP_SERIES_LIST: 'Series list',
   TOOLTIP_MENU: 'Menu',
   LABEL_SIGNED_IN_AS: 'Signed in as',
